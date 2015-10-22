@@ -18,32 +18,44 @@
     <script src="js/services/User.js"></script>
     <script src="js/controllers/Controllers.js"></script>
     <script src="js/controllers/LoginCtrl.js"></script>
+    <script src="js/controllers/DashboardCtrl.js"></script>
   </head>
   <body ng-app="app" ng-controller="LoginCtrl">
 
-    <ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">Ionic Google Login</h1>
-      </ion-header-bar>
-      <ion-content class="padding">
+    <ion-nav-bar class="bar-dark"></ion-nav-bar>
 
-        <div ng-if="user" class="list card">
-          <div class="item item-avatar">
-            <img ng-src="{{ user.picture }}">
-            <h2>{{ user.name }}</h2>
-            <p>{{ user.email }}</p>
+    <ion-nav-view></ion-nav-view>
+
+    <script type="text/ng-template" id="login.html">
+      <ion-view title="Login">
+        <ion-content class="padding" ng-controller="LoginCtrl">
+          <button class="button button-full button-positive" ng-click="login()">
+            Login with Google
+          </button>
+        </ion-content>
+      </ion-view-title>
+    </script>
+
+    <script type="text/ng-template" id="dashboard.html">
+      <ion-view title="Dashboard">
+        <ion-content class="padding" ng-controller="DashboardCtrl">
+          <div class="list card">
+            <div class="item item-avatar">
+              <img ng-src="{{ user.picture }}">
+              <h2>{{ user.name }}</h2>
+              <p>{{ user.email }}</p>
+            </div>
+            <div class="item item-body">
+              <img class="full-image" ng-src="{{ user.picture }}">
+              <p>Hi <strong>{{ user.name }}</strong>, you are successfully logged in using your Google account.</p>
+            </div>
           </div>
-        </div>
 
-        <button ng-if="! user" class="button button-full button-assertive" ng-click="login()">
-          Login with Google
-        </button>
-        <button ng-if="user" class="button button-full button-assertive" ng-click="logout()">
-          Logout
-        </button>
-
-      </ion-content>
-    </ion-pane>
-
+          <button class="button button-full button-assertive" ng-click="logout()">
+            Logout
+          </button>
+        </ion-content>
+      </ion-view-title>
+    </script>
   </body>
 </html>

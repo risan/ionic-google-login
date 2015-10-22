@@ -20,5 +20,4 @@ angular.module('app.Services').service('Google', ['$http', '$cordovaOauth', 'GOO
       errorCallback(response.data.error);
     });
   };
-
 }]);

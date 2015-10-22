@@ -1,17 +1,11 @@
 'use strict';
 
-angular.module('app.Controllers').controller('LoginCtrl', ['$scope', 'User', function($scope, User) {
-
+angular.module('app.Controllers').controller('LoginCtrl', ['$scope', '$state', 'User', function($scope, $state, User) {
   $scope.login = function() {
     User.login(function(user) {
-      $scope.user = user;
+      $state.go('dashboard');
     }, function(error) {
       alert(error);
     });
   };
-
-  $scope.logout = function() {
-    $scope.user = null;
-  }
-
 }]);
