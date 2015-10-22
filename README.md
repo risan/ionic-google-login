@@ -70,7 +70,7 @@ http://localhost/callback
 ```
 Copy the config file:
 ```sh
-$ cp cp www/js/config.js.example www/js/config.js
+$ cp www/js/config.js.example www/js/config.js
 ```
 Open the copied `config.js` file and update `GOOGLE_CLIENT_ID` value with your own Google client id:
 ```js
