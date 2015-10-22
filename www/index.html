@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ng-cordova-oauth/dist/ng-cordova-oauth.min.js"></script>
+    <script src="cordova.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/services/Services.js"></script>
+    <script src="js/services/Google.js"></script>
+    <script src="js/controllers/Controllers.js"></script>
+    <script src="js/controllers/LoginCtrl.js"></script>
+  </head>
+  <body ng-app="app" ng-controller="LoginCtrl">
+
+    <ion-pane>
+      <ion-header-bar class="bar-stable">
+        <h1 class="title">Ionic Google Login</h1>
+      </ion-header-bar>
+      <ion-content class="padding">
+
+        <div ng-if="user" class="list card">
+          <div class="item item-avatar">
+            <img ng-src="{{ user.picture }}">
+            <h2>{{ user.name }}</h2>
+            <p>{{ user.email }}</p>
+          </div>
+        </div>
+
+        <button ng-if="! user" class="button button-full button-assertive" ng-click="login()">
+          Login with Google
+        </button>
+        <button ng-if="user" class="button button-full button-assertive" ng-click="logout()">
+          Logout
+        </button>
+
+      </ion-content>
+    </ion-pane>
+
+  </body>
+</html>

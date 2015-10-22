@@ -1,0 +1,4 @@
+'use strict';
+
+angular.module('app.Config', [])
+  .constant('GOOGLE_CLIENT_ID', 'YOUR GOOGLE CLIENT ID HERE');
