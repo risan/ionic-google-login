@@ -1,26 +1,17 @@
 'use strict';
 
-angular.module('app.Controllers').controller('LoginCtrl',
- ['$rootScope', '$scope', 'Google', function($rootScope, $scope, Google) {
+angular.module('app.Controllers').controller('LoginCtrl', ['$scope', 'User', function($scope, User) {
 
   $scope.login = function() {
-    Google.login(function(accessToken) {
-      getUser();
+    User.login(function(user) {
+      $scope.user = user;
     }, function(error) {
       alert(error);
     });
   };
 
   $scope.logout = function() {
-    Google.logout();
+    $scope.user = null;
   }
-
-  var getUser = function() {
-    Google.getUser(function(data) {
-      console.log(data);
-    }, function(data) {
-      alert(data.error.message);
-    });
-  };
 
 }]);
