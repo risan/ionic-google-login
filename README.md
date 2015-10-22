@@ -54,7 +54,7 @@ $ ionic platform add android
 #### Install Cordova Plugin
 Install [ngCordova InAppBrowser](http://ngcordova.com/docs/plugins/inAppBrowser/) plugin:
 ```sh
-$ cordova plugin add org.apache.cordova.inappbrowser
+$ cordova plugin add cordova-plugin-inappbrowser
 ```
 
 #### Install Ionic & ngCordova OAuth
